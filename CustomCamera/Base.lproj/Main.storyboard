@@ -36,12 +36,21 @@
                                     <outletCollection property="gestureRecognizers" destination="V3q-5K-m1s" appends="YES" id="8AI-zZ-QpP"/>
                                 </connections>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TwS-tI-Pjr">
+                                <rect key="frame" x="286" y="621" width="57" height="30"/>
+                                <state key="normal" title="Settings"/>
+                                <connections>
+                                    <action selector="didPressSettings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vqy-8b-leD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="DcB-zs-YLo" secondAttribute="bottom" constant="16" id="NqJ-82-DEg"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TwS-tI-Pjr" secondAttribute="bottom" constant="16" id="OFn-db-7vJ"/>
                             <constraint firstItem="DcB-zs-YLo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="16" id="TLC-Cr-TFx"/>
+                            <constraint firstItem="TwS-tI-Pjr" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="-16" id="zID-JK-GrK"/>
                         </constraints>
                     </view>
                     <connections>

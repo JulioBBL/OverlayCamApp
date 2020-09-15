@@ -46,6 +46,22 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, UIImagePick
         setupPreviewLayer()
         captureSession.startRunning()
     }
+    
+    //MARK: - Settings
+    var currentSettings: Settings = Settings(alpha: 0.5) {
+        didSet {
+            self.Overlay.alpha = self.currentSettings.alpha
+        }
+    }
+    
+    @IBAction func didPressSettings(_ sender: Any) {
+        let vc = SettingsViewController(self.currentSettings) { newSettings in
+            self.currentSettings = newSettings
+        }
+        
+        self.present(vc, animated: true, completion: nil)
+    }
+    
 
     //MARK: - Capture Session
     
