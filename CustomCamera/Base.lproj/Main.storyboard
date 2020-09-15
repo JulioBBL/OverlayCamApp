@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17132" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17105"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,17 +19,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DcB-zs-YLo">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DcB-zs-YLo">
                                 <rect key="frame" x="32" y="621" width="89" height="30"/>
                                 <state key="normal" title="Select Image"/>
                                 <connections>
                                     <action selector="didPressChangeImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="haq-q2-zGe"/>
-                                    <action selector="flipButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qbF-Xn-YW5"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RMR-qQ-aA9">
+                            <imageView clipsSubviews="YES" alpha="0.55000000000000004" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RMR-qQ-aA9">
                                 <rect key="frame" x="67" y="217" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="1HK-lt-5hU" appends="YES" id="2UH-X8-J0g"/>
+                                    <outletCollection property="gestureRecognizers" destination="rf1-eb-QeZ" appends="YES" id="b1i-s7-zfK"/>
+                                    <outletCollection property="gestureRecognizers" destination="V3q-5K-m1s" appends="YES" id="8AI-zZ-QpP"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -38,9 +43,6 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="DcB-zs-YLo" secondAttribute="bottom" constant="16" id="NqJ-82-DEg"/>
                             <constraint firstItem="DcB-zs-YLo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="16" id="TLC-Cr-TFx"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="rf1-eb-QeZ" appends="YES" id="vo7-hF-KoS"/>
-                        </connections>
                     </view>
                     <connections>
                         <outlet property="Overlay" destination="RMR-qQ-aA9" id="Ibq-qs-65y"/>
@@ -53,18 +55,18 @@
                         <outlet property="delegate" destination="BYZ-38-t0r" id="kRt-aA-Xx5"/>
                     </connections>
                 </panGestureRecognizer>
-                <rotationGestureRecognizer id="V3q-5K-m1s">
-                    <connections>
-                        <action selector="handleRotateWithRecognizer:" destination="BYZ-38-t0r" id="v5W-Py-Yay"/>
-                        <outlet property="delegate" destination="BYZ-38-t0r" id="Opr-4T-j27"/>
-                    </connections>
-                </rotationGestureRecognizer>
                 <pinchGestureRecognizer id="rf1-eb-QeZ">
                     <connections>
                         <action selector="handlePinchWithRecognizer:" destination="BYZ-38-t0r" id="3wI-KP-46N"/>
                         <outlet property="delegate" destination="BYZ-38-t0r" id="nmB-5T-2II"/>
                     </connections>
                 </pinchGestureRecognizer>
+                <rotationGestureRecognizer id="V3q-5K-m1s">
+                    <connections>
+                        <action selector="handleRotateWithRecognizer:" destination="BYZ-38-t0r" id="v5W-Py-Yay"/>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="Opr-4T-j27"/>
+                    </connections>
+                </rotationGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-7" y="35"/>
         </scene>

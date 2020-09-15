@@ -1,7 +1,7 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIGestureRecognizerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var Overlay: UIImageView!
     
     var captureSession = AVCaptureSession()
@@ -37,15 +37,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.Overlay.alpha = 0.5
 
+        setupImagePicker()
         setupCaptureSession()
         setupDevice()
         setupPreviewLayer()
         captureSession.startRunning()
-        
-        self.presentPickerOptions()
     }
 
+    //MARK: - Capture Session
+    
     func setupCaptureSession() {
         captureSession.sessionPreset = AVCaptureSession.Preset.photo
     }
@@ -95,17 +98,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.cameraPreviewLayer?.frame = view.frame
         self.view.layer.insertSublayer(self.cameraPreviewLayer!, at: 0)
     }
-    
-    @IBAction func SelectImage(_ sender: Any) {
-        //TODO
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Preview_Segue" {
-            let previewViewController = segue.destination as! PreviewViewController
-            previewViewController.image = self.image
-        }
-    }
+        
+    //MARK: Gesture Recognizer
     
     @objc func gestureRecognizer(_: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith shouldRecognizeSimultaneouslyWithGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
@@ -132,6 +126,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             recognizer.rotation = 0
         }
     }
+    
+    //MARK: - Image Picker
     
     func setupImagePicker(){
         self.imagePicker = UIImagePickerController()
